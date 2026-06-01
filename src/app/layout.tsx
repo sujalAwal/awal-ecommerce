@@ -49,9 +49,10 @@ export default async function RootLayout({
   const settings = await getSettings();
 
   // Parse colors from hex to RGB
-  const parseColor = (hex: string): string => {
-    if (!hex) return '0 0 0';
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  const parseColor = (hex: string | number | boolean | null | undefined): string => {
+    const hexStr = String(hex || '');
+    if (!hexStr || hexStr === 'false') return '0 0 0';
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexStr);
     if (result) {
       const r = parseInt(result[1], 16);
       const g = parseInt(result[2], 16);
@@ -74,9 +75,9 @@ export default async function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content={settings?.primary_color || '#000000'} />
+        <meta name="theme-color" content={String(settings?.primary_color || '#000000')} />
         {settings?.favicon && (
-          <link rel="icon" href={settings.favicon} type="image/png" />
+          <link rel="icon" href={String(settings.favicon)} type="image/png" />
         )}
       </head>
       <body>

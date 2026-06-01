@@ -54,7 +54,7 @@ export default function ProductFilter({
       <aside
         className={`${isOpen ? 'block' : 'hidden'} lg:block lg:w-72 flex-shrink-0`}
       >
-        <div className="card p-5 space-y-6 lg:sticky lg:top-24 bg-white hover:bg-primary/10 transition-colors duration-300">
+        <div className="card p-5 space-y-6 lg:sticky lg:top-24 bg-white transition-colors duration-300">
           <div className="flex items-center justify-between">
             <h2 className="font-bold text-primary">Filters</h2>
             {hasActiveFilters && (
@@ -88,12 +88,12 @@ export default function ProductFilter({
           {categories.length > 0 && (
             <div>
               <h3 className="text-sm font-semibold text-primary mb-3">Categories</h3>
-              <div className="space-y-1 max-h-44 overflow-y-auto pr-1">
+              <div className="space-y-1 max-h-54 overflow-y-auto pr-1">
                 {categories.map((category) => (
                   <label
                     key={category.id}
                     className={`flex items-center gap-2 cursor-pointer text-sm p-2 rounded-lg transition-colors ${
-                      selectedCategory === category.id ? 'bg-accent/10 text-accent' : 'hover:bg-secondary'
+                      selectedCategory === category.id ? 'bg-accent/10 text-accent' : 'hover:bg-primary/50'
                     }`}
                   >
                     <input
@@ -115,12 +115,12 @@ export default function ProductFilter({
           {brands.length > 0 && (
             <div>
               <h3 className="text-sm font-semibold text-primary mb-3">Brands</h3>
-              <div className="space-y-1 max-h-44 overflow-y-auto pr-1">
+              <div className="space-y-1 max-h-54 overflow-y-auto pr-1">
                 {brands.map((brand) => (
                   <label
                     key={brand.id}
                     className={`flex items-center gap-2 cursor-pointer text-sm p-2 rounded-lg transition-colors ${
-                      selectedBrand === brand.id ? 'bg-accent/10 text-accent' : 'hover:bg-secondary'
+                      selectedBrand === brand.id ? 'bg-accent/10 text-accent' : 'hover:bg-primary/50'
                     }`}
                   >
                     <input

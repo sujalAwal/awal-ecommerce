@@ -89,7 +89,7 @@ export default function Navbar() {
                   className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                     isActive(link.href)
                       ? 'text-accent bg-accent/10'
-                      : 'text-primary/80 hover:text-accent hover:bg-secondary'
+                      : 'text-primary/80 hover:text-accent hover:bg-primary hover:text-white'
                   }`}
                 >
                   {link.label}
@@ -101,7 +101,7 @@ export default function Navbar() {
               <CartIcon />
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
+                className="lg:hidden p-2 rounded-lg hover:bg-primary transition-colors"
                 aria-label="Toggle menu"
                 aria-expanded={isMobileMenuOpen}
               >

@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: 0 0 0;
+  --color-secondary: 243 243 243;
+  --color-accent: 255 107 53;
+  --color-neutral: 128 128 128;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scrollbar-gutter: stable;
+  font-family: var(--font-family);
+  @apply text-primary/90 antialiased bg-white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral/40 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral/60;
+}
+
+@layer components {
+  .container-page {
+    @apply max-w-9xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  .card {
+    @apply bg-white rounded-xl border border-neutral/10 shadow-card;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent/90 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn bg-primary text-white hover:bg-primary/90 active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-primary text-primary hover:bg-primary hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply btn text-primary hover:bg-secondary;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 border border-neutral/25 rounded-lg bg-white text-primary placeholder:text-neutral/60 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors;
+  }
+
+  .page-hero {
+    @apply bg-gradient-to-br from-primary via-primary to-primary/90 text-white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .brand-shine {
+    animation: brandShine 2.8s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brand-shine {
+      animation: none;
+    }
+  }
+}
+
+@keyframes brandShine {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(280%) skewX(-12deg);
+    opacity: 0;
+  }
+}
